@@ -106,25 +106,25 @@ ASGI_APPLICATION = "SMS.asgi.application"
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 # -----------------------------
 # Some model fields may not work on sqlite db, so configure your postgresql
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('DBNAME'),
-        'HOST': os.environ.get('DBHOST'),
-        'USER': os.environ.get('DBUSER'),
-        'PASSWORD': os.environ.get('DBPASS'),
-        'PORT': '5432',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': os.environ.get('DBNAME'),
+#         'HOST': os.environ.get('DBHOST'),
+#         'USER': os.environ.get('DBUSER'),
+#         'PASSWORD': os.environ.get('DBPASS'),
+#         'PORT': '5432',
+#     }
+# }
 DATABASES['default'] = dj_database_url.config()
 
 # https://docs.djangoproject.com/en/stable/ref/settings/#std:setting-DEFAULT_AUTO_FIELD
