@@ -13,7 +13,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 import posixpath
 import environ
-
+import dj_database_url
+from decouple import config
 env = environ.Env()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -28,7 +29,7 @@ SECRET_KEY = 'o!ld8nrt4vc*h1zoey*wj48x*q0#ss12h=+zh)kk^6b3aygg=!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['16.170.249.53','0.0.0.0','127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 # change the default user models to our custom model
 AUTH_USER_MODEL = 'accounts.User' 
@@ -124,6 +125,7 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+DATABASES['default'] = dj_database_url.config()
 
 # https://docs.djangoproject.com/en/stable/ref/settings/#std:setting-DEFAULT_AUTO_FIELD
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
@@ -168,7 +170,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
-STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['staticfiles']))
+STATIC_ROOT = BASE_DIR / "staticfiles_build" / "static"
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

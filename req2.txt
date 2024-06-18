@@ -80,3 +80,5 @@ urllib3==1.26.13
 watchdog==2.1.9
 wrapt==1.14.1
 zope.interface==5.5.2
+python-decouple==3.8
+dj-database-url==2.2.0
