@@ -30,6 +30,6 @@ python3 manage.py createsuperuser --noinput --username Hassan --email hassan@exa
 python3 manage.py shell << EOF
 from django.contrib.auth.models import User
 user = User.objects.get(username='Hassan')
-user.set_password('F4c01F03.')
+user.set_password('pass')
 user.save()
 EOF
